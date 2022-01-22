@@ -17,4 +17,10 @@ const handleListen = () => console.log(`Listening on http://localhost:3000`);
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });  // 동일한 port에서 http, ws protocal 모두 이해 가능
 
+function handleConnection(socket) {
+    console.log(socket);
+};
+
+wss.on('connection', handleConnection);
+
 server.listen(3000, handleListen);
